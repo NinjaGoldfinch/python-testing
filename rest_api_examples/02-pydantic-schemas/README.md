@@ -2,6 +2,10 @@
 
 This example focuses on Pydantic v2 as the API contract layer: request schemas, response schemas, reusable annotated types, validators, serializers, nested models, and error response models.
 
+## When To Use It
+
+Use this pattern when you need strong request validation, well-defined response contracts, or a reusable schema layer that stays separate from routing and persistence.
+
 ## Implementation Plan
 
 1. Define separate create, update, read, list, filter, and error schemas.
@@ -33,3 +37,14 @@ flowchart TD
 - `model_dump(exclude_unset=True)` for PATCH semantics.
 - `ConfigDict(from_attributes=True)` for ORM-compatible reads.
 - Nested schemas with cross-field validation.
+
+## Demo vs Production
+
+- The demo concentrates on schema behavior rather than database or auth concerns.
+- In production, these schemas should sit between route handlers and service methods.
+
+## Best Paired With
+
+- [`../01-fastapi-app-routers/README.md`](../01-fastapi-app-routers/README.md)
+- [`../03-service-methods/README.md`](../03-service-methods/README.md)
+- [`../08-tests/README.md`](../08-tests/README.md)

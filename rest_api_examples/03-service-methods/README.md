@@ -2,6 +2,10 @@
 
 This example shows a framework-independent service layer. Routes call service methods, services enforce business rules, and repositories handle persistence.
 
+## When To Use It
+
+Use this pattern when business rules are becoming too important to live in route handlers or too complex to bury inside repository code.
+
 ## Implementation Plan
 
 1. Model domain states and domain exceptions outside FastAPI.
@@ -33,3 +37,14 @@ flowchart TD
 - Permission and state checks live in the service layer.
 - Repository access goes through a `Protocol`.
 - Self-tests exercise business rules without a web server.
+
+## Demo vs Production
+
+- The demo keeps persistence in memory so the business rules are front and center.
+- In production, the same service contract should sit above a real repository implementation.
+
+## Best Paired With
+
+- [`../04-database-models-repositories/README.md`](../04-database-models-repositories/README.md)
+- [`../06-error-handling/README.md`](../06-error-handling/README.md)
+- [`../08-tests/README.md`](../08-tests/README.md)
