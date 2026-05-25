@@ -1,6 +1,6 @@
 PYTHON := python3
 
-.PHONY: run verify check
+.PHONY: run verify check test ci
 
 run:
 	cd rest_api_examples && $(PYTHON) main.py
@@ -26,3 +26,8 @@ check:
 	$(PYTHON) -m py_compile rest_api_examples/07-auth-permissions/auth_permissions_example.py
 	$(PYTHON) -m py_compile rest_api_examples/08-tests/tests_example.py
 	$(PYTHON) -m py_compile rest_api_examples/09-observability-deployment/observability_deployment_example.py
+
+test:
+	$(PYTHON) -m pytest tests
+
+ci: check verify test
