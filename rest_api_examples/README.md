@@ -2,6 +2,12 @@
 
 This repository is a step-by-step reference for building production-style Python REST APIs. Each checklist item has its own folder with a runnable example, a README, and a Mermaid diagram.
 
+## How To Use This Set
+
+- Learn by topic: open the numbered folders in order.
+- Run interactively: use the launcher in [`main.py`](./main.py).
+- Verify all examples quickly: run `make verify` from the repo root.
+
 ## Quick Start
 
 ```bash
@@ -23,6 +29,18 @@ The launcher can run script demos, start FastAPI servers, and run smoke tests fo
 | 7 | `07-auth-permissions` | Bearer auth, principals, resource permissions |
 | 8 | `08-tests` | Service tests, API tests, dependency overrides |
 | 9 | `09-observability-deployment` | JSON logs, request IDs, metrics, health/readiness, deployment snippets |
+
+## Topic Links
+
+- [`01-fastapi-app-routers`](./01-fastapi-app-routers/)
+- [`02-pydantic-schemas`](./02-pydantic-schemas/)
+- [`03-service-methods`](./03-service-methods/)
+- [`04-database-models-repositories`](./04-database-models-repositories/)
+- [`05-dependency-injection`](./05-dependency-injection/)
+- [`06-error-handling`](./06-error-handling/)
+- [`07-auth-permissions`](./07-auth-permissions/)
+- [`08-tests`](./08-tests/)
+- [`09-observability-deployment`](./09-observability-deployment/)
 
 ## Overall Architecture
 
@@ -77,6 +95,12 @@ python3 -m uvicorn fastapi_example:app --reload --no-server-header
 - Return consistent error envelopes from exception handlers.
 - Test service logic without HTTP and API behavior with FastAPI `TestClient`.
 - Include operational basics: health checks, readiness checks, structured logs, metrics, and deployment notes.
+
+## Learning vs Production
+
+- Learning examples stay small and runnable with minimal setup.
+- In-memory repositories are used where a database would make the topic harder to approach.
+- Production notes are included when a real system would need stronger persistence, security, or deployment behavior.
 
 ## Dependencies
 

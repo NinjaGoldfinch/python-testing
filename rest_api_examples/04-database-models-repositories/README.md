@@ -2,6 +2,10 @@
 
 This example documents the database boundary: ORM-backed development/testing, raw SQL production repositories, repository protocols, sessions/pools, and migration notes.
 
+## When To Use It
+
+Use this pattern when you want the service layer to stay stable while the storage implementation changes between local development, tests, and production deployment.
+
 ## Implementation Plan
 
 1. Keep ORM models, Pydantic schemas, and service records separate.
@@ -53,3 +57,14 @@ Use the repository protocol as the stable boundary:
 | Production | `RawSqlTaskRepository` | Avoids ORM hydration/unit-of-work overhead and keeps hot-path SQL explicit |
 
 The service layer should not know which repository is active. Swap the implementation in dependency injection only.
+
+## Demo vs Production
+
+- The runnable example uses an in-memory repository so the file stays self-contained.
+- The notes describe a practical split: ORM for development and raw SQL for deployed systems.
+
+## Best Paired With
+
+- [`../03-service-methods/README.md`](../03-service-methods/README.md)
+- [`../05-dependency-injection/README.md`](../05-dependency-injection/README.md)
+- [`../08-tests/README.md`](../08-tests/README.md)
