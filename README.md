@@ -1,79 +1,66 @@
 # Python Testing Repo
 
-This repository is a personal Python testing and learning workspace. It is set up as a place to try patterns, document approaches, and keep runnable reference examples together in one repo instead of scattering them across scratch files.
+A personal workspace for learning and experimenting with Python backend patterns. Same idea as having a dedicated scratch space — except everything here is organised, runnable, and easy to come back to later instead of getting lost across random files.
 
-The current focus is API design and backend architecture in Python, with examples that move from HTTP routing through validation, business logic, persistence, testing, and operational concerns.
+The current focus is API design and backend architecture, working through HTTP routing, validation, business logic, persistence, testing, and operational concerns in a logical progression.
 
-## How To Use This Repo
+---
 
-Choose the path that fits what you want to do:
-
-- Learn by topic: start in [`rest_api_examples/README.md`](./rest_api_examples/README.md) and move through the numbered folders.
-- Run the examples: use `make run` for the launcher or `make verify` to run the scripted checks.
-
-## Quick Start
+## Getting Started
 
 ```bash
 python3 -m pip install -e .[dev]
 make run
 ```
 
+To learn by topic, start in [`rest_api_examples/README.md`](./rest_api_examples/README.md) and work through the numbered folders in order.
+
+---
+
 ## Repo Layout
 
-- [`rest_api_examples/`](./rest_api_examples/) contains the main example set.
-- [`rest_api_examples/main.py`](./rest_api_examples/main.py) is the interactive launcher for the examples.
-- [`pyproject.toml`](./pyproject.toml) defines the project dependencies and lightweight tool configuration.
-- [`Makefile`](./Makefile) provides `run`, `verify`, and `check` commands.
-- [`CONTRIBUTING.md`](./CONTRIBUTING.md) describes the conventions for adding or adjusting examples.
-- [`CHANGELOG.md`](./CHANGELOG.md) tracks the higher-level repo changes.
-- [`LICENSE`](./LICENSE) gives the repo a reusable MIT license.
-- [`.gitignore`](./.gitignore) ignores local Python, editor, and macOS generated files.
+```
+rest_api_examples/         The main example set
+  main.py                  Interactive launcher for the examples
 
-## What This Repo Is For
+pyproject.toml             Dependencies and tool config
+Makefile                   run, verify, and check targets
+CONTRIBUTING.md            How to add or adjust examples
+CHANGELOG.md               Repo-level change history
+LICENSE                    MIT
+```
 
-- Testing Python patterns before using them in a larger project.
-- Keeping runnable examples for common backend topics.
-- Comparing architecture approaches, especially around API layering.
-- Documenting decisions and tradeoffs in a way that is easy to revisit later.
+---
 
-## Main Example Set
+## What's Covered
 
-The `rest_api_examples` folder is organized as a step-by-step backend reference. Each topic has its own folder, its own `README.md`, and a runnable example script.
+The `rest_api_examples` folder is a step-by-step backend reference. Each topic has its own folder, its own `README.md`, and a runnable example script.
 
-| Topic | Folder | What it covers |
-|------|--------|----------------|
-| FastAPI app + routers | [`01-fastapi-app-routers`](./rest_api_examples/01-fastapi-app-routers/) | App setup, routers, middleware, CRUD routes, health checks |
-| Pydantic schemas | [`02-pydantic-schemas`](./rest_api_examples/02-pydantic-schemas/) | Request/response models, validation, serialization, nested schemas |
-| Service methods / business logic | [`03-service-methods`](./rest_api_examples/03-service-methods/) | Framework-independent business rules and service-layer structure |
-| Database models + repositories | [`04-database-models-repositories`](./rest_api_examples/04-database-models-repositories/) | In-memory repos, ORM-for-dev notes, raw-SQL-for-production notes |
-| Dependency injection | [`05-dependency-injection`](./rest_api_examples/05-dependency-injection/) | Settings, repository wiring, service wiring, auth dependencies |
-| Error handling | [`06-error-handling`](./rest_api_examples/06-error-handling/) | Structured errors, validation errors, route misses, exception mapping |
-| Auth / permissions | [`07-auth-permissions`](./rest_api_examples/07-auth-permissions/) | Bearer auth, principals, authorization checks |
-| Tests | [`08-tests`](./rest_api_examples/08-tests/) | Service tests, API tests, dependency overrides |
-| Observability + deployment | [`09-observability-deployment`](./rest_api_examples/09-observability-deployment/) | Logging, metrics, readiness checks, deployment notes |
+| # | Topic | What it covers |
+|---|-------|----------------|
+| 01 | [FastAPI app + routers](./rest_api_examples/01-fastapi-app-routers/) | App setup, routers, middleware, CRUD routes, health checks |
+| 02 | [Pydantic schemas](./rest_api_examples/02-pydantic-schemas/) | Request/response models, validation, serialization, nested schemas |
+| 03 | [Service methods](./rest_api_examples/03-service-methods/) | Framework-independent business rules and service-layer structure |
+| 04 | [Database models + repositories](./rest_api_examples/04-database-models-repositories/) | In-memory repos, ORM-for-dev notes, raw-SQL-for-production notes |
+| 05 | [Dependency injection](./rest_api_examples/05-dependency-injection/) | Settings, repository wiring, service wiring, auth dependencies |
+| 06 | [Error handling](./rest_api_examples/06-error-handling/) | Structured errors, validation errors, route misses, exception mapping |
+| 07 | [Auth + permissions](./rest_api_examples/07-auth-permissions/) | Bearer auth, principals, authorization checks |
+| 08 | [Tests](./rest_api_examples/08-tests/) | Service tests, API tests, dependency overrides |
+| 09 | [Observability + deployment](./rest_api_examples/09-observability-deployment/) | Logging, metrics, readiness checks, deployment notes |
 
-## Topic Links
+---
 
-- [`rest_api_examples/README.md`](./rest_api_examples/README.md): overall guide to the API example set
-- [`01-fastapi-app-routers/README.md`](./rest_api_examples/01-fastapi-app-routers/README.md)
-- [`02-pydantic-schemas/README.md`](./rest_api_examples/02-pydantic-schemas/README.md)
-- [`03-service-methods/README.md`](./rest_api_examples/03-service-methods/README.md)
-- [`04-database-models-repositories/README.md`](./rest_api_examples/04-database-models-repositories/README.md)
-- [`05-dependency-injection/README.md`](./rest_api_examples/05-dependency-injection/README.md)
-- [`06-error-handling/README.md`](./rest_api_examples/06-error-handling/README.md)
-- [`07-auth-permissions/README.md`](./rest_api_examples/07-auth-permissions/README.md)
-- [`08-tests/README.md`](./rest_api_examples/08-tests/README.md)
-- [`09-observability-deployment/README.md`](./rest_api_examples/09-observability-deployment/README.md)
-
-## Running The Examples
+## Running Things
 
 From the repo root:
 
 ```bash
-make run
+make run        # Interactive launcher
+make verify     # Full scripted check across all examples
+make check
 ```
 
-You can also run individual scripts directly, for example:
+Or run individual scripts directly:
 
 ```bash
 python3 "rest_api_examples/02-pydantic-schemas/pydantic_example.py"
@@ -81,27 +68,22 @@ python3 "rest_api_examples/03-service-methods/service_example.py"
 python3 "rest_api_examples/04-database-models-repositories/database_example.py"
 ```
 
-For a quick whole-repo verification pass:
+---
 
-```bash
-make verify
-make check
-```
+## Design Decisions
 
-## Architecture Notes
+A few principles that shape how the examples are written:
 
-- Route handlers stay thin and pass work into services.
-- Pydantic handles request and response contracts.
-- Service methods own business rules and orchestration.
-- Repository interfaces isolate persistence from the service layer.
-- For database work, the repo notes currently prefer ORM-backed development/testing and raw SQL for production deployments.
+- **Route handlers stay thin.** They receive a request and hand off to a service — that's it.
+- **Pydantic owns the contract.** All request and response shapes go through Pydantic models.
+- **Business logic lives in services.** Rules and orchestration belong there, not in the handler.
+- **Repositories isolate persistence.** The service layer shouldn't care whether data comes from memory, an ORM, or raw SQL.
+- **Database approach is intentionally split** — ORM for development and testing, raw SQL for production. The examples note where this tradeoff applies.
 
-## Current Tradeoffs
+Most examples use in-memory stores so everything stays runnable without any extra setup. Where the learning version takes a deliberate shortcut, there's a note explaining what a production version would do differently.
 
-- The examples optimize for readability and teaching value first.
-- Most examples use in-memory stores so they stay runnable without extra setup.
-- Production notes are included where the learning version intentionally takes shortcuts.
+---
 
-## Why Keep This Repo
+## Why This Exists
 
-This repo is useful as both a sandbox and a reference shelf. When you want to test an idea quickly, compare implementation styles, or lift a known-good pattern into a real project, the examples here are meant to be easy to run and easy to navigate.
+Mostly as a reference shelf. When you want to test an idea quickly, compare two approaches, or pull a known-good pattern into a real project, it's useful to have examples that are already runnable and clearly organised rather than rebuilding from scratch each time.
